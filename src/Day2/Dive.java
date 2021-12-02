@@ -8,20 +8,22 @@ public class Dive {
 
     public static void main (String[] args) {
 
-        try{
-            File movements  = new File("testdata.txt");
-            Scanner scanner = new Scanner(movements);
+        int depth = 0;
+        int horizontal = 0;
 
-            String firstLine = scanner.nextLine();
-            int depthFirstLine = calculateDepth(firstLine);
-            int horizontalFirstLine = calculateHorizontal(firstLine);
+        try{
+            File movements  = new File("actualdata.txt");
+            Scanner scanner = new Scanner(movements);
 
             while (scanner.hasNextLine()){
                 String data = scanner.nextLine();
-                calculateMovement(data,depthFirstLine, horizontalFirstLine);
-                System.out.println("depth: " + depth + "\nhorizontal: " + horizontal);
+                depth += calculateDepth(data);
+                horizontal += calculateHorizontal(data);
+//                System.out.println("depth: " + depth + "\nhorizontal: " + horizontal);
             }
-            System.out.println("depth: " + depth + "\nhorizontal: " + horizontal);
+            System.out.println("total depth: " + depth + "\ntotal horizontal: " + horizontal);
+            int multiply = depth *horizontal;
+            System.out.println(multiply);
         }
         catch (FileNotFoundException e){
             System.out.println("Bestand kon niet gelezen worden");
@@ -30,7 +32,7 @@ public class Dive {
 
     }
 
-    public static int calculateDepth (String movement){
+        public static int calculateDepth (String movement){
 
         int depth = 0;
         int number = Integer.parseInt(movement.substring(movement.length() - 1).trim());
@@ -55,23 +57,23 @@ public class Dive {
         return horizontal;
     }
 
-    public static void calculateMovement (String movement, int d, int h){
-
-        int depth = 0;
-        int horizontal = 0;
-        int number = Integer.parseInt(movement.substring(movement.length() - 1).trim());
-
-        if (movement.contains("down")) {
-            depth += number;
-        }
-        else if (movement.contains("up")) {
-            depth -= number;
-        }
-        else {
-            horizontal += number;
-        }
-
-        return;
-    }
+//    public static void calculateMovement (String movement, int d, int h){
+//
+//        int depth = 0;
+//        int horizontal = 0;
+//        int number = Integer.parseInt(movement.substring(movement.length() - 1).trim());
+//
+//        if (movement.contains("down")) {
+//            depth += number;
+//        }
+//        else if (movement.contains("up")) {
+//            depth -= number;
+//        }
+//        else {
+//            horizontal += number;
+//        }
+//
+//        return;
+//    }
 
 }
