@@ -19,7 +19,6 @@ public class Dive {
                 String data = scanner.nextLine();
                 depth += calculateDepth(data);
                 horizontal += calculateHorizontal(data);
-//                System.out.println("depth: " + depth + "\nhorizontal: " + horizontal);
             }
             System.out.println("total depth: " + depth + "\ntotal horizontal: " + horizontal);
             int multiply = depth *horizontal;
@@ -56,24 +55,5 @@ public class Dive {
         }
         return horizontal;
     }
-
-//    public static void calculateMovement (String movement, int d, int h){
-//
-//        int depth = 0;
-//        int horizontal = 0;
-//        int number = Integer.parseInt(movement.substring(movement.length() - 1).trim());
-//
-//        if (movement.contains("down")) {
-//            depth += number;
-//        }
-//        else if (movement.contains("up")) {
-//            depth -= number;
-//        }
-//        else {
-//            horizontal += number;
-//        }
-//
-//        return;
-//    }
 
 }
