@@ -29,6 +29,8 @@ public class Dive {
             System.out.println(e);
         }
 
+
+
     }
 
         public static int calculateDepth (String movement){
